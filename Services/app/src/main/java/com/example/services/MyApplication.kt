@@ -17,8 +17,12 @@ class MyApplication: Application() {
     }
 
     private fun createNotificationChannel() {
-        val channel = NotificationChannel(CHANNEL_ID, "Service channel example", NotificationManager.IMPORTANCE_DEFAULT)
+        val channel = NotificationChannel(
+            CHANNEL_ID,
+            "Service channel example",
+            NotificationManager.IMPORTANCE_DEFAULT
+        )
         val manager = getSystemService(NotificationManager::class.java)
-        manager?.createNotificationChannel(channel)
+        manager.createNotificationChannel(channel)
     }
 }

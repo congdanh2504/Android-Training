@@ -21,14 +21,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainBinding.end.setOnClickListener {
-            val intent = Intent(this, MyForegroundService::class.java)
-            stopService(intent)
+            stopService()
         }
     }
 
     private fun startService() {
         val intent = Intent(this, MyForegroundService::class.java)
-        intent.putExtra("data", mainBinding.edittext.text)
+        intent.putExtra("data", mainBinding.edittext.text.toString())
         startService(intent)
+    }
+
+    private fun stopService() {
+        val intent = Intent(this, MyForegroundService::class.java)
+        stopService(intent)
+    }
+
+    override fun onDestroy() {
+        stopService()
+        super.onDestroy()
     }
 }

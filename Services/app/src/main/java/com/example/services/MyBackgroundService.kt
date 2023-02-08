@@ -11,7 +11,7 @@ class MyBackgroundService: Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Thread() {
-            for (i in 0..10) {
+            while (true) {
                 Log.d("Service", "Service is running...")
                 Thread.sleep(2000)
             }
